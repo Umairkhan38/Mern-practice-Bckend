@@ -5,10 +5,15 @@ const env=require('dotenv');
 app.use(cookieParser());
 env.config({path:'./config.env'});
 require('./DB/database.js');
+const cors=require('cors');
+
+
 
 port=process.env.PORT;
 
 app.use(express.json());
+app.use(cors())
+
 
 app.use(require('./Router/Auth.js'))
 
